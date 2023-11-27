@@ -4,15 +4,13 @@ h1 {
 }
 
 main {
-    width: 100%;
     height: 100dvh;
-    display: grid;
-    justify-content: center;
-    align-items: center;
 }
 
 #canvas {
     width: 800px;
     height: 600px;
     background-color: grey;
+    position: absolute;
+    margin: auto;
 }
