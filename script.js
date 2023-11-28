@@ -82,11 +82,15 @@ function changeMargin() {
     // Player gets point
 
     if (mLeft + veloX < 0) {
+        mTop = '290px';
+        mLeft = '390px';
         veloX = -veloX;
         ContentScore1 += 1;
         score1.innerHTML = `Score: ${ContentScore1}`;
     };
     if (mLeft + veloX + ballRadius > 800) {
+        mTop = '290px';
+        mLeft = '390px';
         veloX = -veloX;
         ContentScore2 += 1;
         score2.innerHTML = `Score: ${ContentScore2}`;
