@@ -5,12 +5,41 @@ h1 {
 
 main {
     height: 100dvh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
 
 #canvas {
     width: 800px;
     height: 600px;
     background-color: grey;
+}
+
+#ball {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: black;
     position: absolute;
-    margin: auto;
+}
+
+#score-1 {
+    display: inline;
+}
+ 
+#score-2 {
+    display: inline;
+}
+
+#score-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+#paddle-1, #paddle-2 {
+    width: 10px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
 }
