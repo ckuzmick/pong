@@ -12,7 +12,7 @@ var mTop = 0;
 var mLeft = 0;
 
 const velo = 5;
-const accel = 0.001;
+const accel = 0.0001;
 
 var veloX = velo;
 var veloY = velo;
@@ -82,15 +82,15 @@ function changeMargin() {
     // Player gets point
 
     if (mLeft + veloX < 0) {
-        // ball.style.marginTop = '290px';
-        // ball.style.marginLeft = '390px';
+        mTop = '290px';
+        mLeft = '390px';
         veloX = -veloX;
         ContentScore1 += 1;
         score1.innerHTML = `Score: ${ContentScore1}`;
     };
     if (mLeft + veloX + ballRadius > 800) {
-        // ball.style.marginTop = '290px';
-        // ball.style.marginLeft = '390px';
+        mTop = '290px';
+        mLeft = '390px';
         veloX = -veloX;
         ContentScore2 += 1;
         score2.innerHTML = `Score: ${ContentScore2}`;
