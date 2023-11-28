@@ -84,6 +84,8 @@ function changeMargin() {
     if (mLeft + veloX < 0) {
         mTop = '290px';
         mLeft = '390px';
+        ball.style.marginTop = mTop + 'px';
+        ball.style.marginLeft = mLeft + 'px';
         veloX = -veloX;
         ContentScore1 += 1;
         score1.innerHTML = `Score: ${ContentScore1}`;
@@ -91,6 +93,8 @@ function changeMargin() {
     if (mLeft + veloX + ballRadius > 800) {
         mTop = '290px';
         mLeft = '390px';
+        ball.style.marginTop = mTop + 'px';
+        ball.style.marginLeft = mLeft + 'px';
         veloX = -veloX;
         ContentScore2 += 1;
         score2.innerHTML = `Score: ${ContentScore2}`;
