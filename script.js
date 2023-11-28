@@ -12,7 +12,7 @@ var mTop = '290px';
 var mLeft = '390px';
 
 const velo = 5;
-const accel = 0.0001;
+const accel = 0.001;
 
 var veloX = velo;
 var veloY = velo;
