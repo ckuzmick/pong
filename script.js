@@ -11,7 +11,8 @@ var ContentScore2 = 0;
 var mTop = 0;
 var mLeft = 0;
 
-const velo = 5
+const velo = 5;
+const accel = 0.0001;
 
 var veloX = velo;
 var veloY = velo;
@@ -21,11 +22,13 @@ const ballRadius = 20;
 paddle1.style.marginLeft = '10px';
 paddle2.style.marginLeft = '780px';
 
-var paddle1MTop = 0
+var paddle1MTop = 250
 var leftUpPressed = false
 var leftDownPressed = false
 
-var paddle2MTop = 0
+var paddle2MTop = 250
+var rightUpPressed = false
+var rightDownPressed = false
 
 setInterval(changeMargin, 16);
 
@@ -41,6 +44,12 @@ function keyDownHandler(e) {
     if (e.code === 'KeyS') {
         leftDownPressed = true
     };
+    if (e.code === 'KeyP' ) {
+        rightUpPressed = true
+    };
+    if (e.code === 'KeyL') {
+        rightDownPressed = true
+    };
 };
 
 function keyUpHandler(e) {
@@ -52,15 +61,26 @@ function keyUpHandler(e) {
     if (e.code === 'KeyS') {
         leftDownPressed = false
     };
+    if (e.code === 'KeyP') {
+        rightUpPressed = false
+    };
+    if (e.code === 'KeyL') {
+        rightDownPressed = false
+    };
 };
 
 function changeMargin() {
     mTop += veloY;
     mLeft += veloX;
 
+    // Bounces off walls
+
     if (mTop + veloY + ballRadius > 600 || mTop + veloY < 0) {
         veloY = -veloY
     };
+
+    // Player gets point
+
     if (mLeft + veloX < 0) {
         veloX = -veloX;
         ContentScore1 += 1;
@@ -72,20 +92,40 @@ function changeMargin() {
         score2.innerHTML = `Score: ${ContentScore2}`;
     };
 
-    // veloX += 0.02
-    // veloY += 0.05
+    // Bounces off paddles
+
+    if (mTop > (paddle2MTop - ballRadius) && mLeft + veloX + ballRadius > 780 && mTop < (paddle2MTop + 100 + ballRadius)) {
+        veloX = -veloX;
+    };
+    if (mTop > (paddle1MTop - ballRadius) && mLeft + veloX - ballRadius < 0 && mTop < (paddle1MTop + 100 + ballRadius)) {
+        veloX = -veloX;
+    };
 
     ball.style.marginTop = mTop + 'px';
     ball.style.marginLeft = mLeft + 'px';
 
     console.log(leftUpPressed)
 
-    if (leftUpPressed) {
+    if (leftUpPressed && paddle1MTop > 0) {
         paddle1MTop -= 7;
         paddle1.style.marginTop = paddle1MTop + 'px';
     };
-    if (leftDownPressed) {
+    if (leftDownPressed && paddle1MTop < 500) {
         paddle1MTop += 7;
         paddle1.style.marginTop = paddle1MTop + 'px';
-    }
+    };
+
+    if (rightUpPressed && paddle2MTop > 0) {
+        paddle2MTop -= 7;
+        paddle2.style.marginTop = paddle2MTop + 'px';
+    };
+    if (rightDownPressed && paddle2MTop < 500) {
+        paddle2MTop += 7;
+        paddle2.style.marginTop = paddle2MTop + 'px';
+    };
+
+    if (veloX > 0) { veloX += accel };
+    if (veloX < 0) { veloX -= accel };
+    if (veloY > 0) { veloX += accel };
+    if (veloY < 0) { veloX -= accel };
 }

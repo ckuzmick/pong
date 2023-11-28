@@ -4,7 +4,7 @@ h1 {
 }
 
 main {
-    height: 100dvh;
+    height: 100%;
     display: grid;
     align-items: center;
     justify-content: center;
@@ -22,6 +22,8 @@ main {
     border-radius: 10px;
     background-color: black;
     position: absolute;
+    margin-top: 400px;
+    margin-left: 390px;
 }
 
 #score-1 {
@@ -35,6 +37,7 @@ main {
 #score-box {
     display: flex;
     justify-content: space-between;
+    padding-top: 50px;
 }
 
 #paddle-1, #paddle-2 {
@@ -42,4 +45,10 @@ main {
     height: 100px;
     background-color: black;
     position: absolute;
+    margin-top: 250px;
+}
+
+#footer {
+    padding-top: 20px;
+    text-align: center;
 }
