@@ -8,8 +8,8 @@ const paddle2 = document.getElementById("paddle-2");
 var ContentScore1 = 0;
 var ContentScore2 = 0;
 
-var mTop = 0;
-var mLeft = 0;
+var mTop = '290px';
+var mLeft = '390px';
 
 const velo = 5;
 const accel = 0.0001;
